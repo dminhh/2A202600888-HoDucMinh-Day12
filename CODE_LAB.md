@@ -107,10 +107,10 @@ python app.py
 
 | Feature | Basic | Advanced | Tại sao quan trọng? |
 |---------|-------|----------|---------------------|
-| Config | Hardcode | Env vars | ... |
-| Health check |  |  | ... |
-| Logging | print() | JSON | ... |
-| Shutdown | Đột ngột | Graceful | ... |
+| Config | Hardcode | Env vars | Bảo mật, linh hoạt theo môi trường, không lộ secret khi push code |
+| Health check | Không có | `/health` + `/ready` | Platform cần để biết khi nào restart container hoặc route traffic |
+| Logging | print() | JSON structured | Dễ parse, tìm kiếm trên log aggregator, không log ra secret |
+| Shutdown | Đột ngột | Graceful (SIGTERM) | Hoàn thành request đang xử lý trước khi tắt, tránh mất dữ liệu |
 
 ###  Checkpoint 1
 
